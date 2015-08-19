@@ -51,6 +51,50 @@ See `auto-complete-mode' for more information on Auto-Complete mode.
 
 ;;;***
 
+;;;### (autoloads nil "clojure-mode/clojure-mode" "clojure-mode/clojure-mode.el"
+;;;;;;  (21967 24212 476022 498000))
+;;; Generated autoloads from clojure-mode/clojure-mode.el
+
+(autoload 'clojure-mode "clojure-mode/clojure-mode" "\
+Major mode for editing Clojure code.
+
+\\{clojure-mode-map}
+
+\(fn)" t nil)
+
+(autoload 'clojurescript-mode "clojure-mode/clojure-mode" "\
+Major mode for editing ClojureScript code.
+
+\\{clojurescript-mode-map}
+
+\(fn)" t nil)
+
+(autoload 'clojurec-mode "clojure-mode/clojure-mode" "\
+Major mode for editing ClojureC code.
+
+\\{clojurec-mode-map}
+
+\(fn)" t nil)
+
+(autoload 'clojurex-mode "clojure-mode/clojure-mode" "\
+Major mode for editing ClojureX code.
+
+\\{clojurex-mode-map}
+
+\(fn)" t nil)
+
+(add-to-list 'auto-mode-alist '("\\.\\(clj\\|dtm\\|edn\\)\\'" . clojure-mode))
+
+(add-to-list 'auto-mode-alist '("\\.cljc\\'" . clojurec-mode))
+
+(add-to-list 'auto-mode-alist '("\\.cljx\\'" . clojurex-mode))
+
+(add-to-list 'auto-mode-alist '("\\.cljs\\'" . clojurescript-mode))
+
+(add-to-list 'auto-mode-alist '("\\(?:build\\|profile\\)\\.boot\\'" . clojure-mode))
+
+;;;***
+
 ;;;### (autoloads nil "color-theme/color-theme" "color-theme/color-theme.el"
 ;;;;;;  (17529 41105 0 0))
 ;;; Generated autoloads from color-theme/color-theme.el
@@ -184,6 +228,64 @@ Submit your color-theme to the maintainer.
 Initialize the color theme package by loading color-theme-libraries.
 
 \(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "ecb/ecb" "ecb/ecb.el" (21962 64780 49496 133000))
+;;; Generated autoloads from ecb/ecb.el
+
+(autoload 'ecb-activate "ecb/ecb" "\
+Activates ECB and creates the special buffers for the choosen layout.
+For the layout see `ecb-layout-name'. This function raises always the
+ECB-frame if called from another frame. This is the same as calling
+`ecb-minor-mode' with a positive argument.
+
+\(fn)" t nil)
+
+(autoload 'ecb-minor-mode "ecb/ecb" "\
+Toggle ECB minor mode.
+With prefix argument ARG, turn on if positive, otherwise off. Return non-nil
+if the minor mode is enabled.
+
+\\{ecb-mode-map}
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'ecb-byte-compile "ecb/ecb" "\
+Byte-compiles the ECB package.
+This is done for all lisp-files of ECB if FORCE-ALL is not nil or for each
+lisp-file FILE.el which is either newer than FILE.elc or if FILE.elc doesn't
+exist.
+
+\(fn &optional FORCE-ALL)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "ecb/ecb-help" "ecb/ecb-help.el" (21962 64780
+;;;;;;  21496 133000))
+;;; Generated autoloads from ecb/ecb-help.el
+
+(autoload 'ecb-show-help "ecb/ecb-help" "\
+Shows the online help of ECB in Info or HTML-format.
+The format depends on the setting in `ecb-show-help-format'. If called with
+prefix argument, i.e. if FORMAT is not nil then the user is prompted to choose
+the format of the help (Info or Html).
+
+If an error about not finding the needed help-file occurs please take a look
+at the options `ecb-help-info-start-file' and `ecb-help-html-start-file'!
+
+Note: If you got ECB as a standard XEmacs-package maybe the
+HTML-online-documentation is not included.
+
+\(fn &optional FORMAT)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "ecb/ecb-util" "ecb/ecb-util.el" (21962 64780
+;;;;;;  45496 133000))
+;;; Generated autoloads from ecb/ecb-util.el
+
+(defconst ecb-running-xemacs (featurep 'xemacs))
 
 ;;;***
 
@@ -433,6 +535,28 @@ See `goto-last-change' for use of prefix argument.
 
 ;;;***
 
+;;;### (autoloads nil "markdown-mode/markdown-mode" "markdown-mode/markdown-mode.el"
+;;;;;;  (21962 63787 45476 141000))
+;;; Generated autoloads from markdown-mode/markdown-mode.el
+
+(autoload 'markdown-mode "markdown-mode/markdown-mode" "\
+Major mode for editing Markdown files.
+
+\(fn)" t nil)
+
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+
+(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+(autoload 'gfm-mode "markdown-mode/markdown-mode" "\
+Major mode for editing GitHub Flavored Markdown files.
+
+\(fn)" t nil)
+
+;;;***
+
 ;;;### (autoloads nil "undo-tree/undo-tree" "undo-tree/undo-tree.el"
 ;;;;;;  (21958 48363 572260 978000))
 ;;; Generated autoloads from undo-tree/undo-tree.el
@@ -524,9 +648,23 @@ See `yas-minor-mode' for more information on Yas minor mode.
 ;;;***
 
 ;;;### (autoloads nil nil ("auto-complete-clang/auto-complete-clang.el"
-;;;;;;  "auto-complete/auto-complete-pkg.el" "color-theme-almost-monokai/color-theme-almost-monokai.el"
-;;;;;;  "color-theme/color-theme-autoloads.el" "el-get/el-get-autoloading.el"
-;;;;;;  "el-get/el-get-build.el" "el-get/el-get-byte-compile.el"
+;;;;;;  "auto-complete/auto-complete-pkg.el" "cedet/cedet-build.el"
+;;;;;;  "cedet/cedet-devel-load.el" "cedet/cedet-ediff.el" "cedet/cedet-emacs-merge.el"
+;;;;;;  "cedet/cedet-remove-builtin.el" "cedet/cedet-update-changelog.el"
+;;;;;;  "cedet/cedet-update-version.el" "clojure-mode/clojure-mode-extra-font-locking.el"
+;;;;;;  "color-theme-almost-monokai/color-theme-almost-monokai.el"
+;;;;;;  "color-theme/color-theme-autoloads.el" "ecb/ecb-advice-test.el"
+;;;;;;  "ecb/ecb-analyse.el" "ecb/ecb-autogen.el" "ecb/ecb-autoloads.el"
+;;;;;;  "ecb/ecb-buffertab.el" "ecb/ecb-cedet-wrapper.el" "ecb/ecb-common-browser.el"
+;;;;;;  "ecb/ecb-compatibility.el" "ecb/ecb-compilation.el" "ecb/ecb-create-layout.el"
+;;;;;;  "ecb/ecb-cycle.el" "ecb/ecb-eshell.el" "ecb/ecb-examples.el"
+;;;;;;  "ecb/ecb-face.el" "ecb/ecb-file-browser.el" "ecb/ecb-jde.el"
+;;;;;;  "ecb/ecb-layout-defs.el" "ecb/ecb-layout.el" "ecb/ecb-method-browser.el"
+;;;;;;  "ecb/ecb-mode-line.el" "ecb/ecb-multiframe.el" "ecb/ecb-navigate.el"
+;;;;;;  "ecb/ecb-semantic-wrapper.el" "ecb/ecb-semantic.el" "ecb/ecb-speedbar.el"
+;;;;;;  "ecb/ecb-symboldef.el" "ecb/ecb-tod.el" "ecb/ecb-upgrade.el"
+;;;;;;  "ecb/ecb-winman-support.el" "ecb/silentcomp.el" "ecb/tree-buffer.el"
+;;;;;;  "el-get/el-get-autoloading.el" "el-get/el-get-build.el" "el-get/el-get-byte-compile.el"
 ;;;;;;  "el-get/el-get-core.el" "el-get/el-get-custom.el" "el-get/el-get-dependencies.el"
 ;;;;;;  "el-get/el-get-install.el" "el-get/el-get-methods.el" "el-get/el-get-notify.el"
 ;;;;;;  "el-get/el-get-recipes.el" "el-get/el-get-status.el" "evil/evil-command-window.el"
@@ -536,7 +674,7 @@ See `yas-minor-mode' for more information on Yas minor mode.
 ;;;;;;  "evil/evil-repeat.el" "evil/evil-search.el" "evil/evil-states.el"
 ;;;;;;  "evil/evil-tests.el" "evil/evil-types.el" "evil/evil-vars.el"
 ;;;;;;  "fuzzy/fuzzy.el" "popup/popup.el" "yasnippet/yasnippet-debug.el"
-;;;;;;  "yasnippet/yasnippet-tests.el") (21958 52056 627185 297000))
+;;;;;;  "yasnippet/yasnippet-tests.el") (21967 24213 809376 286000))
 
 ;;;***
 
