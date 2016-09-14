@@ -9,3 +9,13 @@ ls
 ./a.out 
 ./a.out 
 ./a.out 
+cd .emacs.d/
+ls
+rm color.el 
+ls
+l
+ll
+ls
+ls
+mv elisp.org elisp.md
+exit

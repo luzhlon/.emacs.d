@@ -1,64 +1,44 @@
-(defun loadconf (name)
-  (let ((path (concat "~/.emacs.d/" name ".el")))
-    (load path)))
+(defun loadconfs (v)
+  (mapcar (lambda (e)
+                 (load (concat (getenv "HOME") "/.emacs.d/config/" e ".el")))
+          v))
 
-(loadconf "color")
-(loadconf "option")
-(loadconf "keymap")
-(loadconf "elpa")
-(loadconf "powerline")
-(loadconf "yasnippet")
-(loadconf "evil")
-;(loadconf "org-publish")
-; auto-complete
-;(add-to-list 'load-path "~/.emacs.d/el-get/auto-complete/")
-;(require 'auto-complete)
-;(add-to-list 'ac-dictionary-directories "~/.emacs.d/el-get/auto-complete/ac-dict/")
-;(add-to-list 'ac-user-dictionary-files "~/.emacs.d/el-get/auto-complete/dict/guotf.dict")
-;(require 'auto-complete-config)
-;;; 结束
-;
-;;; 开启 auto-complete-clang
-;(add-to-list 'load-path "~/.emacs.d/el-get/auto-complete-clang/")
-;(require 'auto-complete-clang)  
-;;;(setq ac-clang-auto-save t)  
-;;; 设置不自动启动
-;(setq ac-auto-start nil)  
-;;; 设置响应时间 0.5
-;(setq ac-quick-help-delay 0.5)  
-;;;(ac-set-trigger-key "TAB")  
-;;; 提示快捷键为 ctrl-return
-;(define-key ac-mode-map [(control return)] 'auto-complete) 
-;(defun my-ac-config ()  
-;  (setq ac-clang-flags  
-;        (mapcar(lambda (item)(concat "-I" item))  
-;               (split-string  
-;                "
-; /usr/include/c++/4.9
-; /usr/include/c++/4.9/backward
-; /usr/lib/gcc/x86_64-linux-gnu/4.8/include
-; /usr/lib/gcc/x86_64-linux-gnu/4.9/include
-; /usr/local/include
-; /usr/include
-; /home/john/cocos2dx
-; /home/john/cocos2dx/cocos
-; /home/john/cocos2dx/extensions
-;"
-;)))
-;  (setq-default ac-sources '(ac-source-abbrev ac-source-dictionary ac-source-words-in-same-mode-buffers))  
-;  (add-hook 'emacs-lisp-mode-hook 'ac-emacs-lisp-mode-setup)  
-;  (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)
-;  (add-hook 'c++-mode-common-hook 'ac-cc-mode-setup)
-;  (add-hook 'ruby-mode-hook 'ac-ruby-mode-setup)
-;  (add-hook 'css-mode-hook 'ac-css-mode-setup)
-;  (add-hook 'auto-complete-mode-hook 'ac-common-setup)
-;  (global-auto-complete-mode t))
-;(defun my-ac-cc-mode-setup ()  
-;  (setq ac-sources (append '(ac-source-clang ac-source-yasnippet) ac-sources)))  
-;(add-hook 'c-mode-common-hook 'my-ac-cc-mode-setup)  
-;;; ac-source-gtags  
-;(my-ac-config)  
-;(ac-config-default)
-;;; 结束
-;
-;;;
+(loadconfs ["option"
+            "luzhlon"
+            "elpa"
+            "powerline"
+            "yasnippet"
+            "evil"
+            "keymap"])
+
+;; company自动完成
+(global-company-mode 1)
+;; ido插件
+;; (ido-mode 1)
+;; 自动匹配括号
+(electric-pair-mode 1)
+;; 加载配色主题
+(load-theme 'molokai 1)
+;; set alpha
+(set-frame-parameter (selected-frame) 'alpha 90)
+
+;; window-number
+;; (require 'window-number)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("b571f92c9bfaf4a28cb64ae4b4cdbda95241cd62cf07d942be44dc8f46c491f4" default)))
+ '(ede-project-directories
+   (quote
+    ("/home/tom/dbus" "/home/tom/edetest" "/tmp/project/include" "/tmp/project/src" "/tmp/project")))
+ '(python-shell-interpreter "python3"))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
